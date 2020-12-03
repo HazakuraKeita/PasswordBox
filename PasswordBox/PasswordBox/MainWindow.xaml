@@ -1,0 +1,35 @@
+﻿<Window x:Class="PasswordBox.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PasswordBox"
+        mc:Ignorable="d"
+        Title="PasswordBox" Height="200" Width="600">
+    <Window.DataContext>
+        <local:ViewModel/>
+    </Window.DataContext>
+    <Window.Resources>
+        <Style TargetType="TextBlock">
+            <Setter Property="FontSize" Value="24"/>
+            <Setter Property="Margin" Value="20,0"/>
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+        </Style>
+        <Style TargetType="TextBox">
+            <Setter Property="FontSize" Value="24"/>
+            <Setter Property="Height" Value="50"/>
+            <Setter Property="TextAlignment" Value="Left"/>
+            <Setter Property="Padding" Value="10,0"/>
+            <Setter Property="InputScope" Value="EmailSmtpAddress"/>
+            <Setter Property="Margin" Value="20,0"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <StackPanel Orientation="Vertical" VerticalAlignment="Center">
+            <TextBlock Text="Password"/>
+            <TextBox Text="{Binding Password, UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBlock Text="{Binding PlainPassword}" Foreground="Gray" TextAlignment="Right" FontSize="16" HorizontalAlignment="Right" Margin="0,15,20,0"/>
+        </StackPanel>
+    </Grid>
+</Window>
